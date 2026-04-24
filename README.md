@@ -228,6 +228,23 @@ Interactive multi-page analytics dashboard built with Plotly Dash:
 - Feature importance rankings
 - Prediction error analysis
 
+### Screenshots
+
+<p align="center">
+  <img src="screenshots/dashboard-ml-models.png" alt="ML Models Dashboard" width="100%"/>
+  <br><i>ML Model Performance - R², RMSE, AUC metrics with Actual vs Predicted visualization</i>
+</p>
+
+<p align="center">
+  <img src="screenshots/dashboard-predictions.png" alt="Price Predictions" width="100%"/>
+  <br><i>Price Predictions with Feature Importance Analysis</i>
+</p>
+
+<p align="center">
+  <img src="screenshots/dashboard-filtered.png" alt="Filtered Analysis" width="100%"/>
+  <br><i>Zone-filtered Analysis - LONGIL zone, February data</i>
+</p>
+
 ### Run Dashboard
 
 ```bash
