@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+
+# Spark
+*.jar
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Raw data files (too large for git)
+*_csv/
+data/processed/
+*.tmp
+
+# Keep results but ignore large parquet
+results/*.parquet
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temp
+.tmp/
+tmp/
+
+# Claude Code
+.claude/
+
+# Old notebooks
+Project_4.ipynb

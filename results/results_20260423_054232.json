@@ -1,0 +1,46 @@
+[
+  {
+    "model_name": "price_predictor",
+    "metrics": {
+      "rmse": 14.571839357243416,
+      "mae": 2.712435237808022,
+      "r2": 0.9091933645039998,
+      "mape": 5.785013477417599
+    },
+    "timestamp": "2026-04-23T05:42:25.723450",
+    "data_info": {
+      "test_size": 19184,
+      "features": 43
+    }
+  },
+  {
+    "model_name": "demand_forecaster",
+    "metrics": {
+      "rmse": 77.05441592911573,
+      "mae": 30.196730378012607,
+      "r2": 0.9976517235750426,
+      "mape": 1.7011910577421592
+    },
+    "timestamp": "2026-04-23T05:42:28.752991",
+    "data_info": {
+      "test_size": 19184,
+      "features": 43
+    }
+  },
+  {
+    "model_name": "spike_detector",
+    "metrics": {
+      "auc_roc": 0.9998578728798625,
+      "accuracy": 0.998384070058382,
+      "precision": 0.9984521914082307,
+      "recall": 0.9983840700583819,
+      "f1": 0.9984028952599592,
+      "spike_rate": 0.0265325271059216
+    },
+    "timestamp": "2026-04-23T05:42:32.807649",
+    "data_info": {
+      "test_size": 19184,
+      "features": 43
+    }
+  }
+]

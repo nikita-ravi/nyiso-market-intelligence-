@@ -1,0 +1,95 @@
+# NYISO PySpark Project Configuration
+
+data:
+  # Raw data directories (relative to project root)
+  price_pattern: "20*realtime_zone_csv"  # Contains LBMP price data
+  load_pattern: "20*pal_csv"             # Contains load/demand data
+
+  # Processed data output
+  processed_dir: "data/processed"
+  features_dir: "data/features"
+
+  # Data schema
+  price_columns:
+    - "Time Stamp"
+    - "Name"
+    - "PTID"
+    - "LBMP ($/MWHr)"
+    - "Marginal Cost Losses ($/MWHr)"
+    - "Marginal Cost Congestion ($/MWHr)"
+
+  load_columns:
+    - "Time Stamp"
+    - "Time Zone"
+    - "Name"
+    - "PTID"
+    - "Load"
+
+  # NYISO zones
+  zones:
+    - CAPITL
+    - CENTRL
+    - DUNWOD
+    - GENESE
+    - HUD VL
+    - LONGIL
+    - MHK VL
+    - MILLWD
+    - N.Y.C.
+    - NORTH
+    - WEST
+
+spark:
+  app_name: "NYISO-Analytics"
+  master: "local[*]"
+  config:
+    spark.sql.session.timeZone: "America/New_York"
+    spark.driver.memory: "4g"
+    spark.executor.memory: "4g"
+    spark.sql.shuffle.partitions: "8"
+
+models:
+  price_prediction:
+    type: "gbt"
+    max_depth: 8
+    max_iter: 100
+    step_size: 0.1
+
+  demand_forecast:
+    type: "gbt"
+    max_depth: 8
+    max_iter: 100
+    step_size: 0.1
+
+  spike_detection:
+    type: "random_forest"
+    num_trees: 100
+    max_depth: 10
+    threshold_std: 3  # Spikes = price > mean + 3*std
+
+features:
+  temporal:
+    - hour
+    - day_of_week
+    - day_of_month
+    - month
+    - is_weekend
+    - hour_sin
+    - hour_cos
+    - month_sin
+    - month_cos
+
+  rolling_windows:
+    - 24   # 24 hours
+    - 168  # 1 week
+
+  statistics:
+    - mean
+    - std
+    - min
+    - max
+
+dashboard:
+  host: "127.0.0.1"
+  port: 8050
+  debug: true
